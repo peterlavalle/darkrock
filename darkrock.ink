@@ -1,5 +1,5 @@
-
-//
+# theme: dark
+# author: Peter LaValle
 // Peter LaValle - https://peterlavalle.github.io/
 // 2019-01-15
 //
@@ -16,7 +16,7 @@
 // - https://www.inklestudios.com/ink/web-tutorial/
 //
 
-Setup (pages R6 - R12)
+Setup @R6:R12
 
 -> stepExplore
 
@@ -24,43 +24,135 @@ Setup (pages R6 - R12)
 
 Exploration Step.
 
-+ Draw an "Exploration Card"
-    -> drawExplore
++ [Draw an "Exploration Card"]
+	-> drawExplore
 
 + Finish the Expedition
-    -> stepPrecipcie
-    
+	-> stepPrecipcie
+	
 == drawExplore
-    
 
 + Drew Challenge
-    -> drewChallenge
+	-> drewChallenge
 + Drew Combat
-    -> drewCombat
+	-> drewCombat
 + Drew Ambush
-    -> drewAmbush
+	Remember; in an Ambush, the hostiles all go first on the first turn. @C9
+	-> drewCombat
 
 == drewChallenge
 
 Do the thing
 
-+ Finish Card
-    -> stepRecovery
-
++ [Finish Card]
+	-> stepRecovery
 
 == drewCombat
 
-Do the thing
+Creation
 
-+ Finish Card
-    -> stepRecovery
+1; setup battlefield tiles and markers
+2; deploy hostiles from encounter cards
+3; set up the initiate deck
 
-== drewAmbush
++ [Fight Combat]
+	-> fightCombat
 
-Do the thing
+== fightCombat
 
-+ Finish Card
-    -> stepRecovery
+Begin combat turn. @C7
+
++ Destiny Phase
+    -> phaseDestiny
+
+== phaseDestiny
+
+make the destiny roll @C7
+
++ Initiative Phase
+    -> phaseInitiative
+
+== phaseInitiative
+
++ Initiative Phase / Activation Rolls
+    -> phaseInitiativeActivationRolls
+
+== phaseInitiativeActivationRolls
+
++ Initiative Phase / Initiative Cards
+    -> phaseInitiativeInitiateCards
+
+== phaseInitiativeInitiateCards
+
++ Initiative Phase / Covering Fire
+    -> phaseInitiativeCoveringFire
+
+== phaseInitiativeCoveringFire
+
++ Initiative Phase / Gambits
+    -> phaseInitiativeGambits
+
+== phaseInitiativeGambits
+
++ [Gambits Finished]
+    -> phaseActivation
+
+== phaseActivation
+
++ Activate next Explorer
+    -> phaseActivationExplorer
++ Activate next Hostile group
+    -> phaseActivationHostile
++ Activation Complete
+    Add this section
+    -> phaseEvent
+
+
+== phaseActivationExplorer
+
++ Explorer Attack Action
+    Add this section
+    -> phaseActivationExplorer
++ Explorer Other Action
+    Add this section
+    -> phaseActivationExplorer
++ [Done with Actions]
+    check Inspiration Roll @C10
+    -> phaseActivation
+
+
+== phaseActivationHostile
+
++ Reinforcement Rolls @C13
+    Only roll for "old" hostiles.
+    Roll for each mini.
+    -> phaseActivationHostileBehaviour
+
+== phaseActivationHostileBehaviour
+
+for any attack @C14
+1. choose target / weapon
+2. explorer makes a defense roll
+
++ done with this group
+    -> phaseActivation
+    
+== phaseActivationHostileAttack
+
+
+-> phaseActivationHostileBehaviour
+
+== phaseEvent
+
++ All Explorers Out of Action
+    Add this section
+    -> END
++ All Explorers in Escape
+    Add this section
+    -> END
++ Combat Continues
+    perform Event Roll @C15
+    -> fightCombat
 
 
 == stepRecovery
@@ -68,18 +160,20 @@ Do the thing
 Recovery Step.
 
 Make recovery rolls for any "Out of Action" explorer (R14)
-Make vitality rolls for wounded explorerd (R14)
+Make vitality rolls for wounded explorer (R14)
 
-
--> stepLeader
++ An Explorer has died
+	-> stepPrecipcie
++ [Expedition Continues]
+	-> stepLeader
 
 == stepLeader
 
-+ Pass Leadership
-    -> stepExplore
++ [pass the leadership token]
+	-> stepExplore
 
 == stepPrecipcie
 
-UNKOWN
+UNKNOWN (I need to add this section)
 
 -> END
