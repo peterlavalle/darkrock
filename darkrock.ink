@@ -1,7 +1,8 @@
 # theme: dark
-# author: Peter LaValle
-// Peter LaValle - https://peterlavalle.github.io/
-// 2019-01-15
+# author: Peter LaValle @ github.com/peterlavalle/darkrock
+//
+// Peter LaValle - https://github.com/peterlavalle/darkrock
+// 2019-01-17
 //
 // This is a rules prompt thing for a certain board game.
 // Demo (of early version)
@@ -32,11 +33,11 @@ Exploration Step.
 	
 == drawExplore
 
-+ Drew Challenge
++ you drew a Challenge card
 	-> drewChallenge
-+ Drew Combat
++ you drew a Combat card
 	-> drewCombat
-+ Drew Ambush
++ you drew an Ambush card
 	Remember; in an Ambush, the hostiles all go first on the first turn. @C9
 	-> drewCombat
 
@@ -49,7 +50,7 @@ Do the thing
 
 == drewCombat
 
-Creation
+Create Battlefield
 
 1; setup battlefield tiles and markers
 2; deploy hostiles from encounter cards
@@ -62,39 +63,12 @@ Creation
 
 Begin combat turn. @C7
 
-+ Destiny Phase
-    -> phaseDestiny
-
-== phaseDestiny
-
-make the destiny roll @C7
-
-+ Initiative Phase
-    -> phaseInitiative
-
-== phaseInitiative
-
-+ Initiative Phase / Activation Rolls
-    -> phaseInitiativeActivationRolls
-
-== phaseInitiativeActivationRolls
-
-+ Initiative Phase / Initiative Cards
-    -> phaseInitiativeInitiateCards
-
-== phaseInitiativeInitiateCards
-
-+ Initiative Phase / Covering Fire
-    -> phaseInitiativeCoveringFire
-
-== phaseInitiativeCoveringFire
-
-+ Initiative Phase / Gambits
-    -> phaseInitiativeGambits
-
-== phaseInitiativeGambits
-
-+ [Gambits Finished]
++ Destiny Phase / Roll desitiny dice @C7
++ + Initiative Phase / Explorer Activation Rolls
++ + + Initiative Phase / Deal Initiative Cards
++ + + + Initiative Phase / Explorer (free) Covering Fire
++ + + + + Initiative Phase / Explorer (paid) Gambits
++ + + + + + [Gambits Finished / Activate things in order]
     -> phaseActivation
 
 == phaseActivation
@@ -103,7 +77,7 @@ make the destiny roll @C7
     -> phaseActivationExplorer
 + Activate next Hostile group
     -> phaseActivationHostile
-+ Activation Complete
++ All Activations Complete
     Add this section
     -> phaseEvent
 
@@ -165,12 +139,9 @@ Make vitality rolls for wounded explorer (R14)
 + An Explorer has died
 	-> stepPrecipcie
 + [Expedition Continues]
-	-> stepLeader
-
-== stepLeader
-
-+ [pass the leadership token]
-	-> stepExplore
++ + [pass the leadership token]
+    new Leader
+    -> stepExplore
 
 == stepPrecipcie
 
