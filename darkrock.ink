@@ -63,12 +63,9 @@ Create Battlefield
 
 Begin combat turn. @C7
 
-+ Destiny Phase / Roll desitiny dice @C7
-+ + Initiative Phase / Explorer Activation Rolls
-+ + + Initiative Phase / Deal Initiative Cards
-+ + + + Initiative Phase / Explorer (free) Covering Fire
-+ + + + + Initiative Phase / Explorer (paid) Gambits
-+ + + + + + [Gambits Finished / Activate things in order]
++ Destiny + Initiative Phase / d6 Rolls + Shuffle Initiative
++ + Explorer (free) Covering Fire, then Explorer (paid) Gambits
++ + + [Gambits Finished / Activate things in order]
     -> phaseActivation
 
 == phaseActivation
@@ -84,16 +81,36 @@ Begin combat turn. @C7
 
 == phaseActivationExplorer
 
-+ Explorer Attack Action
-    Add this section
++ Move (1+)
     -> phaseActivationExplorer
++ Recuperate (1+)
+    R14
+    -> phaseActivationExplorer
++ Search (4+) markers or inspiration
+    -> phaseActivationExplorer
++ Summon (4+)
+    C15
+    -> phaseActivationExplorer
++ Move (1+)
+    -> phaseActivationExplorer
++ Aim (1+)
+    C12
+    Ignore cover
+    -> phaseActivationExplorerAttack
++ Attack (?+)
+    C12
+    -> phaseActivationExplorerAttack
 + Explorer Other Action
-    Add this section
     -> phaseActivationExplorer
 + [Done with Actions]
     check Inspiration Roll @C10
+    update dice for overwatch @C10-11
     -> phaseActivation
 
+== phaseActivationExplorerAttack
+
++ Pick target, measure, roll, record if slain
+    -> phaseActivationExplorer
 
 == phaseActivationHostile
 
@@ -118,12 +135,8 @@ for any attack @C14
 
 == phaseEvent
 
-+ All Explorers Out of Action
-    Add this section
-    -> END
-+ All Explorers in Escape
-    Add this section
-    -> END
++ All Explorers Out of Action / Escaped
+    -> stepRecovery
 + Combat Continues
     perform Event Roll @C15
     -> fightCombat
